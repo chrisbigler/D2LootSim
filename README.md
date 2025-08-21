@@ -1,7 +1,7 @@
 # D2LootSim - Edge of Fate Leveling & Tiers Rework
 A Monte Carlo simulation system for Destiny 2's **Edge of Fate Leveling & Tiers Rework** - modeling tier-based progression (T1-T5), Guardian Rank/Conquests unlocks, and the new activity reward structures that prioritize time respect and generous loot distribution.
 
-![CleanShot 2025-08-21 at 15 41 21](https://github.com/user-attachments/assets/119b85d0-965c-40cb-b16b-72a241edbcc2)
+![CleanShot 2025-08-21 at 16 36 04](https://github.com/user-attachments/assets/aad167da-770f-4405-a339-a4d0a2fca77f)
 
 
 ## How to run on your Machine
