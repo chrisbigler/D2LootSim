@@ -66,10 +66,9 @@ The **Edge of Fated** system redesigns activities to solve Solo Ops over-efficie
 ### Pinnacle Operations
 - **Duration**: 10-20 minutes per activity (average 14.5 minutes)
 - **Enhanced Streak Configuration**:
-  - **Streak 1**: 4 drops guaranteed *(increased from 3)*
-  - **Streak 2**: 5 drops guaranteed *(increased from 4)*
-  - **Streak 3**: 6 drops guaranteed *(increased from 5)*
-- **Now includes**: Dungeons (moved from other categories)
+  - **Streak 1**: 4 drops guaranteed
+  - **Streak 2**: 5 drops guaranteed
+  - **Streak 3**: 6 drops guaranteed
 
 ### Playlist vs. Single Activity Mechanics
 
