@@ -94,23 +94,28 @@ DROP_LEVEL_RANGES = {
 STARTING_GEAR_LEVEL = 200            # starting level for all gear pieces
 TOTAL_TIME_HOURS = 4               # simulate for 4 hours (single play session length)
 
-# Default systems configuration - can be overridden with custom streak bonuses
+# Default systems configuration - Edge of Fated Leveling & Tiers Rework
+# Updated to match the new system specifications from Google Sheets
 DEFAULT_SYSTEMS = {
     "solo": {
-        1: lambda: 1,
-        2: lambda: 1,
-        3: lambda: 1,
+        # Edge of Fated: No Streaks - Simplified reward structure
+        # 1 Drop + Occasional Rotating Bonus Focus Slot Drops
+        1: lambda: 1,  # No streak progression - always 1 drop
+        2: lambda: 1,  # Maintained for compatibility but not used in new system
+        3: lambda: 1,  # Maintained for compatibility but not used in new system
     },
     "fireteam": {
+        # Edge of Fated: Unchanged from previous system
         1: lambda: 2,
         2: lambda: 3,
         3: lambda: 4,
     },
     "pinnacle": {
-        # Base drop amounts - will be modified in run_sim based on activity type
-        1: lambda: 3,
-        2: lambda: 4,
-        3: lambda: 5,
+        # Edge of Fated: Enhanced rewards (increased from 3/4/5 to 4/5/6)
+        # Now includes Dungeons moved from other categories
+        1: lambda: 4,  # Increased from 3
+        2: lambda: 5,  # Increased from 4
+        3: lambda: 6,  # Increased from 5
     },
 }
 

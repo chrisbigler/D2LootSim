@@ -2,9 +2,38 @@
 
 ## Overview
 
-`DropSim.py` is a Monte Carlo simulation system that models gear progression in a video game with a loot-based character advancement system. The simulation tracks how players acquire and upgrade equipment over time through repeatable activities, using realistic drop mechanics and progression systems.
+`DropSim.py` is a Monte Carlo simulation system that models the **Edge of Fated Leveling & Tiers Rework** for Destiny 2. This new system fundamentally changes progression where **Power Level is no longer the sole focus** but rather a driving force to access difficulty and loot tiers. The simulation models how players progress through **Tier-based gear systems (T1-T5)** unlocked by **Guardian Rank Objectives and Conquests**, with a philosophy that respects player time and makes loot generous at lower tiers.
 
 ## Core Concepts
+
+### New Progression Philosophy
+
+The **Edge of Fated** system introduces fundamental changes to how players progress:
+
+**Goals of System Tweaks:**
+- **Power Level** is no longer the sole focus for progression, but a driving force to access difficulty and loot tiers
+- **Power comes from gear tiers and builds**, not raw level increases
+- **Guardian Rank Objectives + Conquests** unlock new difficulty and gear tiers
+- **Respect Time**: Make loot chase generous at lower tiers (T1-T3)
+- **T4 gear** should be directly chaseable 
+- **T5 gear** feels rare and reserved for highest end activities only (Raids, Trials, Competitive)
+
+### Gear Tier System (T1-T5)
+
+The new system uses **5 distinct gear tiers** instead of simple power level progression:
+
+- **T1-T3**: Generous drop rates, accessible through regular play
+- **T4**: Directly chaseable through focused activities and conquests
+- **T5**: Rare drops reserved for pinnacle endgame content (RaDs, Trials, Competitive)
+
+**Crucible Integration**: Crucible drops respect the level band associated tier for drops (LL 330 = T3 w/ chance for T4, LL 420 = T4 w/ chance for T5)
+
+### Guardian Rank & Conquests
+
+**Conquests** serve as milestone progression achievements that unlock new heights:
+- Beating a Conquest unlocks new parts of the game with **new gear tiers and difficulty levels**
+- Connected to Guardian Rank to reflect achievement progression
+- Designed to feel like major progression milestones rather than incremental upgrades
 
 ### Drop Calculation Method
 
@@ -49,30 +78,39 @@ The simulation models a character with **8 equipment slots**:
 
 ## Activity Types
 
-The simulation supports three types of activities with different time investments and reward structures:
+The **Edge of Fated** system redesigns activities to solve Solo Ops over-efficiency while maintaining rewarding progression:
 
 ### Solo Operations
 - **Duration**: 3-5 minutes per activity
-- **Default Streak Configuration**:
-  - Streak 1: 1 drop guaranteed
-  - Streak 2: 1 drop guaranteed
-  - Streak 3: 1 drop guaranteed
+- **New Streak Configuration**: 
+  - **No Streaks** - Simplified reward structure
+  - **1 Drop** + **Occasional Rotating Bonus Focus Slot Drops**
+  - Focus drops rotate to specific activities but are **not available on playlists**
 
-### Fireteam Operations
+### Fireteam Operations  
 - **Duration**: 8-12 minutes per activity
-- **Default Streak Configuration**:
-  - Streak 1: 2 drops guaranteed
-  - Streak 2: 3 drops guaranteed
-  - Streak 3: 4 drops guaranteed
+- **Streak Configuration**:
+  - **Streak 1**: 2 drops guaranteed
+  - **Streak 2**: 3 drops guaranteed  
+  - **Streak 3**: 4 drops guaranteed
 
 ### Pinnacle Operations
 - **Duration**: 10-20 minutes per activity (average 14.5 minutes)
-- **Default Streak Configuration**:
-  - Streak 1: 3 drops guaranteed
-  - Streak 2: 4 drops guaranteed
-  - Streak 3: 5 drops guaranteed
+- **Enhanced Streak Configuration**:
+  - **Streak 1**: 4 drops guaranteed *(increased from 3)*
+  - **Streak 2**: 5 drops guaranteed *(increased from 4)*
+  - **Streak 3**: 6 drops guaranteed *(increased from 5)*
+- **Now includes**: Dungeons (moved from other categories)
 
-*Note: All streak configurations are fully customizable through the web interface*
+### Playlist vs. Single Activity Mechanics
+
+**New Playlist System**:
+- **Focused slot drops** rotate to specific Activities, but **not available on playlists**
+- **Streak Decay**: When leaving a playlist activity with an active streak to play another activity, streak only drops by **1 per completion** outside of playlist
+- **Rewards playlist engagement** while allowing focused loot chasing
+- **Encourages rotation** between playlist content and targeted farming
+
+*Note: All configurations remain customizable through the web interface*
 
 ## Simulation Parameters
 
@@ -200,15 +238,35 @@ Individual simulation runs now provide detailed analysis including:
 - **Gear Range Analysis**: Spread between highest and lowest gear pieces
 - **Upgrade Efficiency**: Rate at which drops result in actual improvements
 
+## Additional System Enhancements
+
+The **Edge of Fated** rework includes several quality-of-life and progression improvements:
+
+### Content Structure Changes
+- **GM-style rotation** for Fireteam Ops at LL 400-450
+
+### Player Experience Improvements
+- **Remove annoying modifiers** from playlists (Low Gravity, no ammo, etc.)
+- **Vendor Activity Progress** returns with activity streaks ramping up XP gains
+- **Generous loot philosophy**: "Give more because progression allows sunsetting of prior gear"
+- **Flexible 400-450 grind**: Less restrictive since the whole game is already unlocked
+
+### Loot Philosophy
+- **Be generous with loot** - progression to new tiers allows for sunsetting all previously gathered gear
+- **Lower tiers (T1-T3)** should feel abundant and accessible
+- **Higher tiers (T4-T5)** maintain exclusivity while being directly chaseable
+- **Time respect** as a core design principle
+
 ## Practical Applications
 
 This simulation is valuable for:
 
-1. **Game Balance**: Testing reward systems before implementation
-2. **Player Experience**: Predicting progression rates and time investment
-3. **Economic Modeling**: Understanding loot economy dynamics
-4. **Feature Testing**: Evaluating impact of streak systems, etc.
-5. **Statistical Analysis**: Providing data-driven insights for game design decisions
+1. **Tier-Based Progression Testing**: Modeling how the T1-T5 system affects player progression rates
+2. **Conquest Impact Analysis**: Understanding how Guardian Rank milestones affect gear acquisition
+3. **Activity Balance**: Comparing efficiency between Solo/Fireteam/Pinnacle operations under new streak systems
+4. **Playlist Engagement**: Testing the impact of focused drops and streak decay on player behavior
+5. **Economic Modeling**: Understanding the generous loot economy and its impact on player retention
+6. **Time Investment Analysis**: Validating the "respect time" philosophy through progression simulations
 
 ## Usage
 
