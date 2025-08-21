@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +13,11 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #181C2A 0%, #23232B 100%);
+            background: linear-gradient(135deg, var(--void-900) 0%, var(--void-800) 50%, var(--void-700) 100%);
             min-height: 100vh;
-            color: #F5F6FA;
+            color: var(--text);
             line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -128,11 +129,12 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #3A405A 0%, #181C2A 100%);
-            color: #F5F6FA;
-            border: 1px solid #3A405A;
+            background: linear-gradient(135deg, var(--brand-600) 0%, var(--brand-800) 100%);
+            color: var(--stellar-50);
+            border: 1px solid var(--brand-600);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 2px 8px rgba(107, 70, 193, 0.2);
         }
 
         .btn-primary::before {
@@ -142,7 +144,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(245,246,250,0.1) 0%, rgba(245,246,250,0.05) 100%);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(167, 139, 250, 0.1) 100%);
             transition: left 0.3s ease;
         }
 
@@ -151,26 +153,40 @@
         }
 
         .btn-secondary {
-            background: linear-gradient(135deg, #6B7280 0%, #3A405A 100%);
-            color: #F5F6FA;
-            border: 1px solid #6B7280;
+            background: linear-gradient(135deg, var(--cosmic-600) 0%, var(--cosmic-700) 100%);
+            color: var(--stellar-50);
+            border: 1px solid var(--cosmic-600);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
         }
 
         .btn-success {
-            background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
-            color: #F5F6FA;
-            border: 1px solid #16A34A;
+            background: linear-gradient(135deg, var(--success-500) 0%, var(--success-600) 100%);
+            color: var(--stellar-50);
+            border: 1px solid var(--success-500);
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            filter: brightness(1.05);
+            box-shadow: 0 8px 25px rgba(107, 70, 193, 0.4);
+            filter: brightness(1.1);
         }
 
         .btn:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(245, 246, 250, 0.3), 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 0 0 4px var(--accent), 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-primary:focus {
+            box-shadow: 0 0 0 4px rgba(107, 70, 193, 0.5), 0 0 20px rgba(107, 70, 193, 0.4);
+        }
+
+        .btn-secondary:focus {
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-success:focus {
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.5), 0 0 20px rgba(16, 185, 129, 0.4);
         }
 
         .btn:active {
@@ -223,14 +239,19 @@
         }
 
         .result-card {
-            background: white;
+            background: var(--surface);
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
-            border-left: 4px solid #3A405A;
-            border: 1px solid #E5E7EB;
-            border-left: 4px solid #3A405A;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--brand-600);
+            box-shadow: 0 2px 10px rgba(107, 70, 193, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(107, 70, 193, 0.15);
         }
 
         .result-header {
@@ -405,17 +426,110 @@
             }
         }
     </style>
+    <style>
+        :root {
+            /* Edge of Fate - Primary Palette */
+            --brand-600: #6B46C1;
+            --brand-700: #553C9A;
+            --brand-800: #4C1D95;
+            --void-900: #0A0A0F;
+            --void-800: #1A1A2E;
+            --void-700: #16213E;
+            --cosmic-500: #3B82F6;
+            --cosmic-600: #2563EB;
+            --cosmic-700: #1D4ED8;
+            --stellar-50: #F8FAFC;
+            --stellar-100: #F1F5F9;
+            --stellar-200: #E2E8F0;
+            /* Edge of Fate - Status Colors */
+            --success-500: #10B981;
+            --success-600: #059669;
+            --warning-500: #F59E0B;
+            --warning-600: #D97706;
+            --error-500: #EF4444;
+            --error-600: #DC2626;
+            --info-500: #06B6D4;
+            --info-600: #0891B2;
+            /* Light theme tokens (Stellar) */
+            --bg: #F8FAFC;
+            --surface: #FFFFFF;
+            --surface-subtle: #F1F5F9;
+            --text: #0F172A;
+            --muted: #64748B;
+            --border: #E2E8F0;
+            --accent: #6B46C1;
+            --accent-hover: #553C9A;
+        }
+
+        [data-theme="dark"] {
+            /* Dark theme tokens (Void) - Edge of Fate */
+            --bg: #0A0A0F;
+            --surface: #1A1A2E;
+            --surface-subtle: #16213E;
+            --text: #F8FAFC;
+            --muted: #94A3B8;
+            --border: #334155;
+            --accent: #8B5CF6;
+            --accent-hover: #A78BFA;
+        }
+
+        /* Theming overrides */
+        body { background: var(--bg); color: var(--text); }
+        .config-panel, .results-panel { background: var(--surface); border-color: var(--border); }
+        .result-card { background: var(--surface); border-color: var(--border); }
+        .stat-item, .gear-item, .system-card { background: var(--surface-subtle); border-color: var(--border); }
+        .stat-value { color: var(--text); font-size: 24px; font-weight: 800; }
+        [data-theme="dark"] .stat-value { color: #ffffff; }
+        [data-theme="dark"] .stat-item { background: #101526; }
+        .header { display: flex; align-items: center; justify-content: space-between; }
+        .mode-toggle { padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-subtle); color: var(--text); cursor: pointer; font-weight: 600; }
+        .mode-toggle:hover { filter: brightness(1.05); }
+        .section-title { color: var(--text); margin-bottom: 15px; font-size: 1.1em; border-bottom: 1px solid var(--border); padding-bottom: 8px; font-weight: 700; }
+        .muted { color: var(--muted); }
+        .grid { display: grid; gap: 10px; }
+        .grid-2 { grid-template-columns: 1fr 1fr; }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .mb-20 { margin-bottom: 20px; }
+        .mb-15 { margin-bottom: 15px; }
+        /* Improve contrast for headings and gear text in dark mode */
+        .result-header, .system-title, .gear-level { color: var(--text); }
+        /* Notices in dark mode */
+        .error, .success, .warning, .info { 
+            background: var(--surface-subtle); 
+            color: var(--text); 
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .error { 
+            border-left: 4px solid var(--error-500);
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, var(--surface-subtle) 100%);
+        }
+        .success { 
+            border-left: 4px solid var(--success-500);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, var(--surface-subtle) 100%);
+        }
+        .warning { 
+            border-left: 4px solid var(--warning-500);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, var(--surface-subtle) 100%);
+        }
+        .info { 
+            border-left: 4px solid var(--info-500);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, var(--surface-subtle) 100%);
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>Destiny 2: Edge of Fate - Loot Simulator</h1>
+            <button id="theme-toggle" class="mode-toggle" aria-label="Toggle color theme">🌓 Theme</button>
         </div>
 
         <div class="main-content">
             <!-- Configuration Panel -->
             <div class="config-panel">
                 <h2>⚙️ Configuration</h2>
+                
                 
                 <div class="button-group">
                     <button class="btn btn-primary" onclick="window.open('https://docs.google.com/spreadsheets/d/1YZ_1mxtPwXe68gMZAeA3HGYImS1OuSvDb9LpwsKmyew/edit?gid=0#gid=0', '_blank')">
@@ -439,54 +553,51 @@
 
                 <!-- Drop Level Ranges Section -->
                 <div class="form-group">
-                    <h3 style="color: #3A405A; margin-bottom: 15px; font-size: 1.1em; border-bottom: 1px solid #D1D5DB; padding-bottom: 8px;">📦 Drop Level Ranges</h3>
-                    
-                    <div style="font-size: 0.85em; color: #6B7280; margin-top: 10px;">
-                        <em>Configure how many levels above character level gear drops for each activity type</em>
-                    </div>
+                    <h3 class="section-title">📦 Drop Level Ranges</h3>
+                    <div class="muted" style="font-size: 0.9em; margin-top: 10px;"><em>Configure how many levels above character level gear drops for each activity type</em></div>
                     <br>
                     <!-- Solo Operations -->
-                    <div style="margin-bottom: 20px;">
-                        <h4 style="color: #23232B; margin-bottom: 10px; font-size: 0.95em;">Solo Operations</h4>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="mb-20">
+                        <h4 class="muted" style="color: inherit; font-weight: 700;">Solo Operations</h4>
+                        <div class="grid grid-2">
                             <div>
-                                <label style="font-size: 0.8em; color: #6B7280;">Min Drop Level</label>
-                                <input type="number" id="solo_min_drop" value="1" min="0" max="10" step="1" style="padding: 8px; font-size: 0.85em;">
+                                <label class="muted" style="font-size: 0.85em;">Min Drop Level</label>
+                                <input class="input" type="number" id="solo_min_drop" value="1" min="0" max="10" step="1">
                             </div>
                             <div>
-                                <label style="font-size: 0.8em; color: #6B7280;">Max Drop Level</label>
-                                <input type="number" id="solo_max_drop" value="3" min="0" max="10" step="1" style="padding: 8px; font-size: 0.85em;">
+                                <label class="muted" style="font-size: 0.85em;">Max Drop Level</label>
+                                <input class="input" type="number" id="solo_max_drop" value="3" min="0" max="10" step="1">
                             </div>
                         </div>
                     </div>
 
                     
                     <!-- Fireteam Operations -->
-                    <div style="margin-bottom: 20px;">
-                        <h4 style="color: #23232B; margin-bottom: 10px; font-size: 0.95em;">Fireteam Operations</h4>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="mb-20">
+                        <h4 class="muted" style="color: inherit; font-weight: 700;">Fireteam Operations</h4>
+                        <div class="grid grid-2">
                             <div>
-                                <label style="font-size: 0.8em; color: #6B7280;">Min Drop Level</label>
-                                <input type="number" id="fireteam_min_drop" value="1" min="0" max="10" step="1" style="padding: 8px; font-size: 0.85em;">
+                                <label class="muted" style="font-size: 0.85em;">Min Drop Level</label>
+                                <input class="input" type="number" id="fireteam_min_drop" value="1" min="0" max="10" step="1">
                             </div>
                             <div>
-                                <label style="font-size: 0.8em; color: #6B7280;">Max Drop Level</label>
-                                <input type="number" id="fireteam_max_drop" value="3" min="0" max="10" step="1" style="padding: 8px; font-size: 0.85em;">
+                                <label class="muted" style="font-size: 0.85em;">Max Drop Level</label>
+                                <input class="input" type="number" id="fireteam_max_drop" value="3" min="0" max="10" step="1">
                             </div>
                         </div>
                     </div>
                     
                     <!-- Pinnacle Operations -->
-                    <div style="margin-bottom: 15px;">
-                        <h4 style="color: #23232B; margin-bottom: 10px; font-size: 0.95em;">Pinnacle Operations</h4>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="mb-15">
+                        <h4 class="muted" style="color: inherit; font-weight: 700;">Pinnacle Operations</h4>
+                        <div class="grid grid-2">
                             <div>
-                                <label style="font-size: 0.8em; color: #6B7280;">Min Drop Level</label>
-                                <input type="number" id="pinnacle_min_drop" value="1" min="0" max="10" step="1" style="padding: 8px; font-size: 0.85em;">
+                                <label class="muted" style="font-size: 0.85em;">Min Drop Level</label>
+                                <input class="input" type="number" id="pinnacle_min_drop" value="1" min="0" max="10" step="1">
                             </div>
                             <div>
-                                <label style="font-size: 0.8em; color: #6B7280;">Max Drop Level</label>
-                                <input type="number" id="pinnacle_max_drop" value="3" min="0" max="10" step="1" style="padding: 8px; font-size: 0.85em;">
+                                <label class="muted" style="font-size: 0.85em;">Max Drop Level</label>
+                                <input class="input" type="number" id="pinnacle_max_drop" value="3" min="0" max="10" step="1">
                             </div>
                         </div>
                     </div>
@@ -495,46 +606,43 @@
 
                 <!-- Streak Bonuses Section -->
                 <div class="form-group">
-                    <h3 style="color: #3A405A; margin-bottom: 15px; font-size: 1.1em; border-bottom: 1px solid #D1D5DB; padding-bottom: 8px;">🔥 Streak Bonuses</h3>
-                    
-                    <div style="font-size: 0.85em; color: #6B7280; margin-top: 10px;">
-                        <em>Configure drops received at each streak level for consecutive successful activities</em>
-                    </div>
+                    <h3 class="section-title">🔥 Streak Bonuses</h3>
+                    <div class="muted" style="font-size: 0.9em; margin-top: 10px;"><em>Configure drops received at each streak level for consecutive successful activities</em></div>
                     <br>
                     <!-- Fireteam Operations -->
-                    <div style="margin-bottom: 20px;">
-                        <h4 style="color: #23232B; margin-bottom: 10px; font-size: 0.95em;">Fireteam Operations</h4>
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 10px;">
+                    <div class="mb-20">
+                        <h4 class="muted" style="color: inherit; font-weight: 700;">Fireteam Operations</h4>
+                        <div class="grid grid-3" style="margin-bottom: 10px;">
                             <div>
-                                <label style="font-size: 0.8em; color: #6B7280;">Streak 1</label>
-                                <input type="number" id="fireteam_streak_1" value="2" min="0" max="10" step="1" style="padding: 6px; font-size: 0.85em;">
+                                <label class="muted" style="font-size: 0.85em;">Streak 1</label>
+                                <input class="input" type="number" id="fireteam_streak_1" value="2" min="0" max="10" step="1">
                             </div>
                             <div>
-                                <label style="font-size: 0.8em; color: #6B7280;">Streak 2</label>
-                                <input type="number" id="fireteam_streak_2" value="3" min="0" max="10" step="1" style="padding: 6px; font-size: 0.85em;">
+                                <label class="muted" style="font-size: 0.85em;">Streak 2</label>
+                                <input class="input" type="number" id="fireteam_streak_2" value="3" min="0" max="10" step="1">
                             </div>
                             <div>
-                                <label style="font-size: 0.8em; color: #6B7280;">Streak 3</label>
-                                <input type="number" id="fireteam_streak_3" value="4" min="0" max="10" step="1" style="padding: 6px; font-size: 0.85em;">
+                                <label class="muted" style="font-size: 0.85em;">Streak 3</label>
+                                <input class="input" type="number" id="fireteam_streak_3" value="4" min="0" max="10" step="1">
                             </div>
                         </div>
                     </div>
                     
                     <!-- Pinnacle Operations -->
-                    <div style="margin-bottom: 15px;">
-                        <h4 style="color: #23232B; margin-bottom: 10px; font-size: 0.95em;">Pinnacle Operations</h4>
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 10px;">
+                    <div class="mb-15">
+                        <h4 class="muted" style="color: inherit; font-weight: 700;">Pinnacle Operations</h4>
+                        <div class="grid grid-3" style="margin-bottom: 10px;">
                             <div>
-                                <label style="font-size: 0.8em; color: #6B7280;">Streak 1</label>
-                                <input type="number" id="pinnacle_streak_1" value="4" min="0" max="10" step="1" style="padding: 6px; font-size: 0.85em;">
+                                <label class="muted" style="font-size: 0.85em;">Streak 1</label>
+                                <input class="input" type="number" id="pinnacle_streak_1" value="4" min="0" max="10" step="1">
                             </div>
                             <div>
-                                <label style="font-size: 0.8em; color: #6B7280;">Streak 2</label>
-                                <input type="number" id="pinnacle_streak_2" value="5" min="0" max="10" step="1" style="padding: 6px; font-size: 0.85em;">
+                                <label class="muted" style="font-size: 0.85em;">Streak 2</label>
+                                <input class="input" type="number" id="pinnacle_streak_2" value="5" min="0" max="10" step="1">
                             </div>
                             <div>
-                                <label style="font-size: 0.8em; color: #6B7280;">Streak 3</label>
-                                <input type="number" id="pinnacle_streak_3" value="6" min="0" max="10" step="1" style="padding: 6px; font-size: 0.85em;">
+                                <label class="muted" style="font-size: 0.85em;">Streak 3</label>
+                                <input class="input" type="number" id="pinnacle_streak_3" value="6" min="0" max="10" step="1">
                             </div>
                         </div>
                     </div>
@@ -545,13 +653,13 @@
             <div class="results-panel">
                 <h2>📈 Simulation Results</h2>
                 <div id="results-content">
-                    <div style="text-align: center; padding: 40px; color: #6B7280;">
-                        <h3 style="color: #3A405A;">Welcome to D2 Loot Simulator!</h3>
-                        <p>Configure your parameters and run a simulation to see results.</p>
+                    <div class="loading">
+                        <h3 class="muted" style="color: inherit;">Welcome to D2 Loot Simulator!</h3>
+                        <p class="muted">Configure your parameters and run a simulation to see results.</p>
                         <br>
                         <p><strong>Quick Start:</strong></p>
-                        <p>• Adjust session length and starting gear level</p>
-                        <p>• Use "Compare All Systems" to see differences between solo, fireteam, and pinnacle operations</p>
+                        <p class="muted">• Adjust session length and starting gear level</p>
+                        <p class="muted">• Use "Compare All Systems" to see differences between solo, fireteam, and pinnacle operations</p>
                         <br>
                         <p><strong>New Feature:</strong> See how many play sessions it will take to reach max level (450)!</p>
                     </div>
@@ -561,6 +669,24 @@
     </div>
 
     <script>
+        // Theme persistence and toggle
+        (function(){
+            try {
+                const saved = localStorage.getItem('theme-preference');
+                if (saved) document.documentElement.setAttribute('data-theme', saved);
+            } catch (e) {}
+        })();
+        document.addEventListener('DOMContentLoaded', function(){
+            var btn = document.getElementById('theme-toggle');
+            if (btn) {
+                btn.addEventListener('click', function(){
+                    var html = document.documentElement;
+                    var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    html.setAttribute('data-theme', next);
+                    try { localStorage.setItem('theme-preference', next); } catch (e) {}
+                });
+            }
+        });
         function getConfig() {
             return {
                 total_time_hours: parseFloat(document.getElementById('total_time_hours').value),
@@ -604,7 +730,7 @@
             document.getElementById('results-content').innerHTML = `
                 <div class="loading">
                     <div class="spinner"></div>
-                    <p>${message}</p>
+                    <p class="muted">${message}</p>
                 </div>
             `;
         }
@@ -618,7 +744,7 @@
         }
 
         async function runSingleSimulation() {
-            const system = document.getElementById('system_select').value;
+            const system = 'solo';
             const config = getConfig();
             
             showLoading('Running single simulation...');
@@ -681,23 +807,20 @@
             document.getElementById('results-content').innerHTML = `
                 <div class="result-card">
                     <div class="result-header">Comprehensive System Comparison</div>
-                    <div style="padding: 15px; background: white; border-radius: 8px; border: 1px solid #E5E7EB;">
-                        <p style="margin: 0; font-size: 0.9em; color: #181C2A;">
-                            <strong>📊 Statistical Analysis:</strong> Results based on 1000 simulation runs per system for maximum accuracy. 
-                            All metrics shown are averages with ranges indicating variability across different sessions.
-                        </p>
+                    <div class="info" style="padding: 12px;">
+                        <p class="muted" style="margin: 0; font-size: 0.95em;"><strong>📊 Statistical Analysis:</strong> Results based on 1000 simulation runs per system for maximum accuracy. Averages shown with ranges indicating variability.</p>
                     </div>
                     <br>
 
                     <!-- Statistical Summary -->
-                    <div style="margin-bottom: 20px;">
-                        <h3 style="color: #3A405A; margin-bottom: 15px; border-bottom: 2px solid #B0B3B8; padding-bottom: 8px;">📈 Statistical Summary & Recommendations</h3>
+                    <div class="mb-20">
+                        <h3 class="section-title">📈 Statistical Summary & Recommendations</h3>
                         ${generateRecommendations(results)}
                     </div>
                     
                     <!-- Core Performance Metrics -->
                     <div>
-                        <h3 style="color: #3A405A; margin-bottom: 15px; border-bottom: 2px solid #B0B3B8; padding-bottom: 8px;">🎯 Core Performance Metrics</h3>
+                        <h3 class="section-title">🎯 Core Performance Metrics</h3>
                         <div class="comparison-grid">
                             ${['solo', 'fireteam', 'pinnacle'].map(system => {
                                 const data = results[system];
@@ -710,29 +833,22 @@
                                             <div class="stat-item">
                                                 <div class="stat-value">${data.drops}</div>
                                                 <div class="stat-label">Total Drops</div>
-                                                <div style="font-size: 0.8em; color: #6B7280; margin-top: 2px;">
-                                                    Range: ${data.statistical_ranges.drops.min}-${data.statistical_ranges.drops.max}
-                                                </div>
+                                                <div class="muted" style="font-size: 12px; margin-top: 2px;">Range: ${data.statistical_ranges.drops.min}-${data.statistical_ranges.drops.max}</div>
                                             </div>
                                             <div class="stat-item">
                                                 <div class="stat-value">${data.activities}</div>
                                                 <div class="stat-label">Activities Completed</div>
-                                                <div style="font-size: 0.8em; color: #6B7280; margin-top: 2px;">
-                                                    Range: ${data.statistical_ranges.activities.min}-${data.statistical_ranges.activities.max}
-                                                </div>
+                                                <div class="muted" style="font-size: 12px; margin-top: 2px;">Range: ${data.statistical_ranges.activities.min}-${data.statistical_ranges.activities.max}</div>
                                             </div>
                                             <div class="stat-item">
                                                 <div class="stat-value">${data.max_streak}</div>
                                                 <div class="stat-label">Activity Streak Reached</div>
-                                                <div style="font-size: 0.8em; color: #6B7280; margin-top: 2px;">
-                                                </div>
+                                                <div class="muted" style="font-size: 12px; margin-top: 2px;"></div>
                                             </div>
                                             <div class="stat-item">
                                                 <div class="stat-value">${data.character_level}</div>
                                                 <div class="stat-label">Character Level</div>
-                                                <div style="font-size: 0.8em; color: #6B7280; margin-top: 2px;">
-                                                    Range: ${data.statistical_ranges.character_level.min}-${data.statistical_ranges.character_level.max}
-                                                </div>
+                                                <div class="muted" style="font-size: 12px; margin-top: 2px;">Range: ${data.statistical_ranges.character_level.min}-${data.statistical_ranges.character_level.max}</div>
                                             </div>
                                             <div class="stat-item">
                                                 <div class="stat-value">+${data.levels_gained}</div>
@@ -741,9 +857,7 @@
                                             <div class="stat-item">
                                                 <div class="stat-value">${(data.upgrade_rate * 100).toFixed(1)}%</div>
                                                 <div class="stat-label">Upgrade Rate</div>
-                                                <div style="font-size: 0.8em; color: #6B7280; margin-top: 2px;">
-                                                    Range: ${(data.statistical_ranges.upgrade_rate.min * 100).toFixed(1)}%-${(data.statistical_ranges.upgrade_rate.max * 100).toFixed(1)}%
-                                                </div>
+                                                <div class="muted" style="font-size: 12px; margin-top: 2px;">Range: ${(data.statistical_ranges.upgrade_rate.min * 100).toFixed(1)}%-${(data.statistical_ranges.upgrade_rate.max * 100).toFixed(1)}%</div>
                                             </div>
                                             <div class="stat-item">
                                                 <div class="stat-value">${data.total_upgrades}</div>
@@ -834,9 +948,9 @@
 
                     <!-- Gear Breakdown -->
                     <div class="gear-section">
-                        <h3 style="color: #3A405A; margin-bottom: 15px; border-bottom: 1px solid #D1D5DB; padding-bottom: 8px;">🎯 Current Gear Levels</h3>
+                        <h3 class="section-title">🎯 Current Gear Levels</h3>
                         
-                        <h4 style="color: #23232B; margin-bottom: 10px;">Weapons</h4>
+                        <h4 class="muted" style="color: inherit; font-weight: 700; margin-bottom: 10px;">Weapons</h4>
                         <div class="gear-grid">
                             ${Object.entries(result.gear_levels.weapons).map(([slot, level]) => `
                                 <div class="gear-item">
@@ -846,7 +960,7 @@
                             `).join('')}
                         </div>
                         
-                        <h4 style="color: #23232B; margin: 20px 0 10px 0;">Armor</h4>
+                        <h4 class="muted" style="color: inherit; font-weight: 700; margin: 20px 0 10px 0;">Armor</h4>
                         <div class="gear-grid">
                             ${Object.entries(result.gear_levels.armor).map(([slot, level]) => `
                                 <div class="gear-item">
@@ -873,22 +987,22 @@
             });
             
             return `
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
-                    <div style="padding: 15px; background: white; border-radius: 8px; border: 1px solid #E5E7EB;">
-                        <h4 style="color: #16A34A; margin: 0 0 10px 0;">🏆 Most Drops</h4>
-                        <p style="margin: 0; color: #181C2A;"><strong>${bestDrops}</strong> averages ${results[bestDrops].drops} drops per session</p>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                    <div class="info" style="padding: 12px;">
+                        <h4 style="margin: 0 0 8px 0;">🏆 Most Drops</h4>
+                        <p class="muted" style="margin: 0;"><strong>${bestDrops}</strong> averages ${results[bestDrops].drops} drops per session</p>
                     </div>
-                    <div style="padding: 15px; background: white; border-radius: 8px; border: 1px solid #E5E7EB;">
-                        <h4 style="color: #3B82F6; margin: 0 0 10px 0;">⚡ Fastest Progression</h4>
-                        <p style="margin: 0; color: #181C2A;"><strong>${bestLevelsPerHour}</strong> gains ${results[bestLevelsPerHour].levels_per_hour} levels/hour</p>
+                    <div class="info" style="padding: 12px; border-left-color: var(--brand-600);">
+                        <h4 style="margin: 0 0 8px 0;">⚡ Fastest Progression</h4>
+                        <p class="muted" style="margin: 0;"><strong>${bestLevelsPerHour}</strong> gains ${results[bestLevelsPerHour].levels_per_hour} levels/hour</p>
                     </div>
-                    <div style="padding: 15px; background: white; border-radius: 8px; border: 1px solid #E5E7EB;">
-                        <h4 style="color: #9333EA; margin: 0 0 10px 0;">🎯 Best Upgrade Rate</h4>
-                        <p style="margin: 0; color: #181C2A;"><strong>${bestUpgradeRate}</strong> has ${(results[bestUpgradeRate].upgrade_rate * 100).toFixed(1)}% upgrade rate</p>
+                    <div class="info" style="padding: 12px; border-left-color: #9333ea;">
+                        <h4 style="margin: 0 0 8px 0;">🎯 Best Upgrade Rate</h4>
+                        <p class="muted" style="margin: 0;"><strong>${bestUpgradeRate}</strong> has ${(results[bestUpgradeRate].upgrade_rate * 100).toFixed(1)}% upgrade rate</p>
                     </div>
-                    <div style="padding: 15px; background: white; border-radius: 8px; border: 1px solid #E5E7EB;">
-                        <h4 style="color: #F59E0B; margin: 0 0 10px 0;">🚀 Fastest to Max</h4>
-                        <p style="margin: 0; color: #181C2A;"><strong>${fastestToMax}</strong> reaches max in ${results[fastestToMax].hours_to_max || 'N/A'} hours</p>
+                    <div class="warning" style="padding: 12px;">
+                        <h4 style="margin: 0 0 8px 0;">🚀 Fastest to Max</h4>
+                        <p class="muted" style="margin: 0;"><strong>${fastestToMax}</strong> reaches max in ${results[fastestToMax].hours_to_max || 'N/A'} hours</p>
                     </div>
                 </div>
             `;

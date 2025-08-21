@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, jsonify
+import os
 import json
 import numpy as np
 import DropSim
 from DropSim import ALL_GEAR_SLOTS, WEAPON_SLOTS, ARMOR_SLOTS
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='.')
 
 # Default configuration values
 DEFAULT_CONFIG = {
