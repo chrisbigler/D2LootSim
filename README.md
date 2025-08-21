@@ -1,5 +1,5 @@
-# D2LootSim - Edge of Fated Leveling & Tiers Rework
-A Monte Carlo simulation system for Destiny 2's **Edge of Fated Leveling & Tiers Rework** - modeling tier-based progression (T1-T5), Guardian Rank/Conquests unlocks, and the new activity reward structures that prioritize time respect and generous loot distribution.
+# D2LootSim - Edge of Fate Leveling & Tiers Rework
+A Monte Carlo simulation system for Destiny 2's **Edge of Fate Leveling & Tiers Rework** - modeling tier-based progression (T1-T5), Guardian Rank/Conquests unlocks, and the new activity reward structures that prioritize time respect and generous loot distribution.
 
 ## How to run on your Machine
 1. Download the code
@@ -10,7 +10,7 @@ A Monte Carlo simulation system for Destiny 2's **Edge of Fated Leveling & Tiers
 
 ### New Progression Philosophy
 
-The **Edge of Fated** system introduces fundamental changes to how players progress:
+The **Edge of Fate** system introduces fundamental changes to how players progress:
 
 **Goals of System Tweaks:**
 - **Power Level** is no longer the sole focus for progression, but a driving force to access difficulty and loot tiers
