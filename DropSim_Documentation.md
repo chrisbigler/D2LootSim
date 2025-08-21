@@ -229,12 +229,11 @@ The **Edge of Fated** rework includes several quality-of-life and progression im
 
 This simulation is valuable for:
 
-1. **Tier-Based Progression Testing**: Modeling how the T1-T5 system affects player progression rates
-2. **Conquest Impact Analysis**: Understanding how Guardian Rank milestones affect gear acquisition
-3. **Activity Balance**: Comparing efficiency between Solo/Fireteam/Pinnacle operations under new streak systems
-4. **Playlist Engagement**: Testing the impact of focused drops and streak decay on player behavior
-5. **Economic Modeling**: Understanding the generous loot economy and its impact on player retention
-6. **Time Investment Analysis**: Validating the "respect time" philosophy through progression simulations
+1. **Conquest Impact Analysis**: Understanding how Guardian Rank milestones affect gear acquisition
+2. **Activity Balance**: Comparing efficiency between Solo/Fireteam/Pinnacle operations under new streak systems
+3. **Playlist Engagement**: Testing the impact of focused drops and streak decay on player behavior
+4. **Economic Modeling**: Understanding the loot economy and its impact on player retention
+5. **Time Investment Analysis**: Validating the "respect time" philosophy through progression simulations
 
 ## Usage
 
@@ -301,7 +300,6 @@ The simulation includes a complete Flask web application (`app.py`) that provide
 - **System Comparison**: Compare all three systems (solo/fireteam/pinnacle) with 1000+ trial statistical analysis
 - **Detailed Results**: View progression rates, upgrade efficiency, and time-to-max calculations
 - **Visual Feedback**: Loading states, error handling, and comprehensive result displays
-
 
 
 ### Configuration Options:
