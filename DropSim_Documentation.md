@@ -4,37 +4,6 @@
 
 `DropSim.py` is a Monte Carlo simulation system that models the **Edge of Fated Leveling & Tiers Rework** for Destiny 2. This new system fundamentally changes progression where **Power Level is no longer the sole focus** but rather a driving force to access difficulty and loot tiers. The simulation models how players progress through **Tier-based gear systems (T1-T5)** unlocked by **Guardian Rank Objectives and Conquests**, with a philosophy that respects player time and makes loot generous at lower tiers.
 
-## Core Concepts
-
-### New Progression Philosophy
-
-The **Edge of Fated** system introduces fundamental changes to how players progress:
-
-**Goals of System Tweaks:**
-- **Power Level** is no longer the sole focus for progression, but a driving force to access difficulty and loot tiers
-- **Power comes from gear tiers and builds**, not raw level increases
-- **Guardian Rank Objectives + Conquests** unlock new difficulty and gear tiers
-- **Respect Time**: Make loot chase generous at lower tiers (T1-T3)
-- **T4 gear** should be directly chaseable 
-- **T5 gear** feels rare and reserved for highest end activities only (Raids, Trials, Competitive)
-
-### Gear Tier System (T1-T5)
-
-The new system uses **5 distinct gear tiers** instead of simple power level progression:
-
-- **T1-T3**: Generous drop rates, accessible through regular play
-- **T4**: Directly chaseable through focused activities and conquests
-- **T5**: Rare drops reserved for pinnacle endgame content (RaDs, Trials, Competitive)
-
-**Crucible Integration**: Crucible drops respect the level band associated tier for drops (LL 330 = T3 w/ chance for T4, LL 420 = T4 w/ chance for T5)
-
-### Guardian Rank & Conquests
-
-**Conquests** serve as milestone progression achievements that unlock new heights:
-- Beating a Conquest unlocks new parts of the game with **new gear tiers and difficulty levels**
-- Connected to Guardian Rank to reflect achievement progression
-- Designed to feel like major progression milestones rather than incremental upgrades
-
 ### Drop Calculation Method
 
 The simulation uses a **direct calculation approach** for determining drops:
