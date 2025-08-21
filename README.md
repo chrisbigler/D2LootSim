@@ -2,8 +2,8 @@
 A Monte Carlo simulation system for Destiny 2's **Edge of Fate Leveling & Tiers Rework** - modeling tier-based progression (T1-T5), Guardian Rank/Conquests unlocks, and the new activity reward structures that prioritize time respect and generous loot distribution.
 
 ## How to run on your Machine
-1. Download the code
-2. Open it in your preferred IDE (VS Code, Cursor, etc.)
+1. Download the repo
+2. Open downloaded file folder in your preferred IDE (VS Code, Cursor, etc.)
 3. Run `python app.py` to start the web interface on http://localhost:5002
 
 ## Core Concepts
