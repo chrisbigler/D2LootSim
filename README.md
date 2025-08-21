@@ -1,6 +1,11 @@
 # D2LootSim - Edge of Fated Leveling & Tiers Rework
 A Monte Carlo simulation system for Destiny 2's **Edge of Fated Leveling & Tiers Rework** - modeling tier-based progression (T1-T5), Guardian Rank/Conquests unlocks, and the new activity reward structures that prioritize time respect and generous loot distribution.
 
+## How to run on your Machine
+1. Download the code
+2. Open it in your preferred IDE (VS Code, Cursor, etc.)
+3. Run `python app.py` to start the web interface on http://localhost:5002
+
 ## Core Concepts
 
 ### New Progression Philosophy
@@ -23,7 +28,7 @@ The new system uses **5 distinct gear tiers** instead of simple power level prog
 - **T4**: Directly chaseable through focused activities and conquests
 - **T5**: Rare drops reserved for pinnacle endgame content (RaDs, Trials, Competitive)
 
-**Crucible Integration**: Crucible drops respect the level band associated tier for drops (LL 330 = T3 w/ chance for T4, LL 420 = T4 w/ chance for T5)
+**Crucible Integration**: Crucible drops respect the level band associated tier for drops (LL 300 = T3 w/ 33% chance for T4, LL 400 = T4 w/ 25% chance for T5)
 
 ### Guardian Rank & Conquests
 
@@ -31,5 +36,3 @@ The new system uses **5 distinct gear tiers** instead of simple power level prog
 - Beating a Conquest unlocks new parts of the game with **new gear tiers and difficulty levels**
 - Connected to Guardian Rank to reflect achievement progression
 - Designed to feel like major progression milestones rather than incremental upgrades
-
-Run `python app.py` to start the web interface on http://localhost:5002
