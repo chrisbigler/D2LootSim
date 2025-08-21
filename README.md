@@ -1,16 +1,19 @@
-# D2LootSim - Edge of Fated Leveling & Tiers Rework
-A Monte Carlo simulation system for Destiny 2's **Edge of Fated Leveling & Tiers Rework** - modeling tier-based progression (T1-T5), Guardian Rank/Conquests unlocks, and the new activity reward structures that prioritize time respect and generous loot distribution.
+# D2LootSim - Edge of Fate Leveling & Tiers Rework
+A Monte Carlo simulation system for Destiny 2's **Edge of Fate Leveling & Tiers Rework** - modeling tier-based progression (T1-T5), Guardian Rank/Conquests unlocks, and the new activity reward structures that prioritize time respect and generous loot distribution.
+
+![CleanShot 2025-08-21 at 15 41 21](https://github.com/user-attachments/assets/119b85d0-965c-40cb-b16b-72a241edbcc2)
+
 
 ## How to run on your Machine
-1. Download the code
-2. Open it in your preferred IDE (VS Code, Cursor, etc.)
+1. Download the repo
+2. Open downloaded file folder in your preferred IDE (VS Code, Cursor, etc.)
 3. Run `python app.py` to start the web interface on http://localhost:5002
 
 ## Core Concepts
 
 ### New Progression Philosophy
 
-The **Edge of Fated** system introduces fundamental changes to how players progress:
+The **Edge of Fate** system introduces fundamental changes to how players progress:
 
 **Goals of System Tweaks:**
 - **Power Level** is no longer the sole focus for progression, but a driving force to access difficulty and loot tiers
