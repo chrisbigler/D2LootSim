@@ -72,7 +72,7 @@ The simulation supports three types of activities with different time investment
   - Streak 2: 4 drops guaranteed
   - Streak 3: 5 drops guaranteed
 
-*Note: All streak configurations are fully customizable through the web interface or API parameters.*
+*Note: All streak configurations are fully customizable through the web interface*
 
 ## Simulation Parameters
 
@@ -276,10 +276,7 @@ The simulation includes a complete Flask web application (`app.py`) that provide
 - **Detailed Results**: View progression rates, upgrade efficiency, and time-to-max calculations
 - **Visual Feedback**: Loading states, error handling, and comprehensive result displays
 
-### API Endpoints:
-- `GET /`: Main simulation interface
-- `POST /run_simulation`: Execute single simulation run
-- `POST /compare_systems`: Compare all three systems with statistical analysis
+
 
 ### Configuration Options:
 - Session length (0.5-24 hours)
