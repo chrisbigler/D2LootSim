@@ -49,30 +49,47 @@ The simulation models a character with **8 equipment slots**:
 
 ## Activity Types
 
-The simulation supports two types of activities with different time investments and reward structures:
+The simulation supports three types of activities with different time investments and reward structures:
 
 ### Solo Operations
 - **Duration**: 3-5 minutes per activity
-- **Streak Progression**:
-  - Streak 1-2: 1 drop guaranteed
-  - Streak 3-4: 2 drops guaranteed  
-  - Streak 5: 3 drops guaranteed
+- **Default Streak Configuration**:
+  - Streak 1: 1 drop guaranteed
+  - Streak 2: 1 drop guaranteed
+  - Streak 3: 1 drop guaranteed
 
 ### Fireteam Operations
 - **Duration**: 8-12 minutes per activity
-- **Streak Progression**:
+- **Default Streak Configuration**:
+  - Streak 1: 2 drops guaranteed
+  - Streak 2: 3 drops guaranteed
+  - Streak 3: 4 drops guaranteed
+
+### Pinnacle Operations
+- **Duration**: 10-20 minutes per activity (average 14.5 minutes)
+- **Default Streak Configuration**:
   - Streak 1: 3 drops guaranteed
   - Streak 2: 4 drops guaranteed
-  - Streak 3: 5 drops + 33% chance for bonus drop
-  - Streak 4: 6 drops + 66% chance for bonus drop
-  - Streak 5: 7 drops + 50% chance for bonus drop
+  - Streak 3: 5 drops guaranteed
+
+*Note: All streak configurations are fully customizable through the web interface or API parameters.*
 
 ## Simulation Parameters
 
 ### Configurable Settings
 ```python
 STARTING_GEAR_LEVEL = 200         # Starting level for all gear pieces
-TOTAL_TIME_HOURS = 4              # Simulation duration (4 hours)
+TOTAL_TIME_HOURS = 4              # Default simulation duration (4 hours per session)
+```
+
+### Drop Level Ranges
+All activity types use the same default drop level ranges:
+```python
+DROP_LEVEL_RANGES = {
+    "solo": (1, 3),        # +1 to +3 levels above character level
+    "fireteam": (1, 3),    # +1 to +3 levels above character level  
+    "pinnacle": (1, 3),    # +1 to +3 levels above character level
+}
 ```
 
 ### Streak System
@@ -195,7 +212,23 @@ This simulation is valuable for:
 
 ## Usage
 
-The simulation supports both interactive menu mode and command-line execution:
+The simulation supports three modes of operation: web interface, interactive menu, and command-line execution:
+
+### Web Interface Mode (Recommended)
+```bash
+python app.py
+```
+
+This launches the Flask web server on `http://localhost:5002` with a modern web interface featuring:
+- Real-time parameter configuration
+- Visual results with charts and tables
+- System comparison tools
+- Mobile-friendly responsive design
+
+### Prerequisites for Web Mode:
+```bash
+pip install flask numpy
+```
 
 ### Interactive Menu Mode
 ```bash
@@ -205,35 +238,65 @@ python DropSim.py
 This launches an interactive menu with the following options:
 1. **Single run (Solo)** - Single simulation of solo operations
 2. **Single run (Fireteam)** - Single simulation of fireteam operations  
-3. **Average of 100 runs (Solo)** - Statistical average across 100 solo runs
-4. **Average of 100 runs (Fireteam)** - Statistical average across 100 fireteam runs
-5. **Time to max level analysis (Solo)** - Analysis of progression to level 450 (solo)
-6. **Time to max level analysis (Fireteam)** - Analysis of progression to level 450 (fireteam)
-7. **Full statistical analysis (Original)** - Comprehensive 10,000-trial analysis for both modes
-8. **Exit** - Quit the program
+3. **Single run (Pinnacle Ops)** - Single simulation of pinnacle operations
+4. **Average of 100 runs (Solo)** - Statistical average across 100 solo runs
+5. **Average of 100 runs (Fireteam)** - Statistical average across 100 fireteam runs
+6. **Average of 100 runs (Pinnacle Ops)** - Statistical average across 100 pinnacle runs
+7. **Time to max level analysis (Solo)** - Analysis of progression to level 450 (solo)
+8. **Time to max level analysis (Fireteam)** - Analysis of progression to level 450 (fireteam)
+9. **Time to max level analysis (Pinnacle Ops)** - Analysis of progression to level 450 (pinnacle)
+10. **Full statistical analysis (Original)** - Comprehensive 10,000-trial analysis for all three modes
+11. **Exit** - Quit the program
 
 ### Command Line Mode
 ```bash
 # Run specific analysis directly
-python DropSim.py 1    # Single solo run
-python DropSim.py 2    # Single fireteam run
-python DropSim.py 3    # Average solo results
-python DropSim.py 4    # Average fireteam results
-python DropSim.py 5    # Solo time-to-max analysis
-python DropSim.py 6    # Fireteam time-to-max analysis
-python DropSim.py 7    # Full statistical analysis
+python DropSim.py 1     # Single solo run
+python DropSim.py 2     # Single fireteam run
+python DropSim.py 3     # Single pinnacle run
+python DropSim.py 4     # Average solo results (100 runs)
+python DropSim.py 5     # Average fireteam results (100 runs)
+python DropSim.py 6     # Average pinnacle results (100 runs)
+python DropSim.py 7     # Solo time-to-max analysis (1000 runs)
+python DropSim.py 8     # Fireteam time-to-max analysis (1000 runs)
+python DropSim.py 9     # Pinnacle time-to-max analysis (1000 runs)
+python DropSim.py 10    # Full statistical analysis (10,000 trials)
 ```
 
 The simulation demonstrates how different activity types create distinct risk/reward profiles, helping players and developers understand optimal strategies for character progression.
+
+## Web Interface
+
+The simulation includes a complete Flask web application (`app.py`) that provides:
+
+### Features:
+- **Modern Responsive UI**: Clean, mobile-friendly interface with real-time configuration
+- **Live Configuration**: Adjust session length, starting gear level, streak bonuses, and drop ranges
+- **System Comparison**: Compare all three systems (solo/fireteam/pinnacle) with 1000+ trial statistical analysis
+- **Detailed Results**: View progression rates, upgrade efficiency, and time-to-max calculations
+- **Visual Feedback**: Loading states, error handling, and comprehensive result displays
+
+### API Endpoints:
+- `GET /`: Main simulation interface
+- `POST /run_simulation`: Execute single simulation run
+- `POST /compare_systems`: Compare all three systems with statistical analysis
+
+### Configuration Options:
+- Session length (0.5-24 hours)
+- Starting gear level (100-400)
+- Custom streak bonuses for fireteam and pinnacle operations
+- Custom drop level ranges for all activity types
 
 ## Technical Implementation
 
 - **Monte Carlo Method**: Uses random sampling to model complex probabilistic systems
 - **Numpy Integration**: Leverages numpy for efficient statistical calculations
+- **Flask Web Framework**: Modern web interface with REST API endpoints
+- **Real-time Configuration**: Dynamic parameter adjustment through web UI
+- **Thread-safe Execution**: Proper handling of concurrent simulations
 - **Realistic Modeling**: Time constraints and random variations mirror actual gameplay
 - **Comprehensive Tracking**: Maintains detailed history for post-analysis
-- **Interactive Interface**: Menu-driven system for easy analysis selection
-- **Command Line Support**: Direct execution of specific analysis types via arguments
-- **Multiple Analysis Modes**: Single runs, averaged results, and specialized time-to-max analysis
+- **Multiple Interfaces**: Web UI, interactive menu, and command-line support
+- **Statistical Analysis**: Single runs, averaged results, and specialized time-to-max analysis
 
 This simulation provides a robust framework for analyzing gear progression systems and can be easily modified to test different game mechanics, reward structures, or progression curves.
