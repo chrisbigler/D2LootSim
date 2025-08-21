@@ -1,11 +1,35 @@
 # D2LootSim - Edge of Fated Leveling & Tiers Rework
 A Monte Carlo simulation system for Destiny 2's **Edge of Fated Leveling & Tiers Rework** - modeling tier-based progression (T1-T5), Guardian Rank/Conquests unlocks, and the new activity reward structures that prioritize time respect and generous loot distribution.
 
-## Key Features
-- **Tier-Based Progression**: Simulates T1-T5 gear tiers instead of raw power level grinding
-- **Guardian Rank Integration**: Models how Conquests unlock new difficulty and gear tiers  
-- **Updated Activity Structure**: Solo Ops (no streaks), Fireteam Ops (2/3/4 drops), Pinnacle Ops (4/5/6 drops)
-- **Playlist Mechanics**: Focused drops, streak decay, and playlist vs. single activity selection
-- **Web Interface**: Modern responsive UI for real-time configuration and analysis
+## Core Concepts
+
+### New Progression Philosophy
+
+The **Edge of Fated** system introduces fundamental changes to how players progress:
+
+**Goals of System Tweaks:**
+- **Power Level** is no longer the sole focus for progression, but a driving force to access difficulty and loot tiers
+- **Power comes from gear tiers and builds**, not raw level increases
+- **Guardian Rank Objectives + Conquests** unlock new difficulty and gear tiers
+- **Respect Time**: Make loot chase generous at lower tiers (T1-T3)
+- **T4 gear** should be directly chaseable 
+- **T5 gear** feels rare and reserved for highest end activities only (Raids, Trials, Competitive)
+
+### Gear Tier System (T1-T5)
+
+The new system uses **5 distinct gear tiers** instead of simple power level progression:
+
+- **T1-T3**: Generous drop rates, accessible through regular play
+- **T4**: Directly chaseable through focused activities and conquests
+- **T5**: Rare drops reserved for pinnacle endgame content (RaDs, Trials, Competitive)
+
+**Crucible Integration**: Crucible drops respect the level band associated tier for drops (LL 330 = T3 w/ chance for T4, LL 420 = T4 w/ chance for T5)
+
+### Guardian Rank & Conquests
+
+**Conquests** serve as milestone progression achievements that unlock new heights:
+- Beating a Conquest unlocks new parts of the game with **new gear tiers and difficulty levels**
+- Connected to Guardian Rank to reflect achievement progression
+- Designed to feel like major progression milestones rather than incremental upgrades
 
 Run `python app.py` to start the web interface on http://localhost:5002
