@@ -112,9 +112,11 @@ This will run your app at `http://localhost:3000` with the same serverless envir
    - **FIXED**: Use explicit `builds` configuration with `@vercel/python`
    - The API now serves both static HTML and handles API endpoints
 
-3. **Import Errors**: 
+3. **Import Errors / "DropSim module not available"**: 
    - Ensure `DropSim.py` is in the `/api/` directory
+   - **FIXED**: Added sys.path modification and multiple import methods for Vercel compatibility
    - Check that all dependencies are in `requirements.txt`
+   - Use specific package versions to avoid compatibility issues
 
 4. **Build Failed During Deployment**:
    - Verify your `requirements.txt` only contains necessary packages

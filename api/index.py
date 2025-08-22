@@ -5,16 +5,26 @@ import numpy as np
 import sys
 
 # Import DropSim from the same directory
+# Add the current directory to Python path for Vercel
+current_dir = os.path.dirname(os.path.abspath(__file__))
+if current_dir not in sys.path:
+    sys.path.insert(0, current_dir)
+
 try:
     from DropSim import ALL_GEAR_SLOTS, WEAPON_SLOTS, ARMOR_SLOTS
     import DropSim
 except ImportError as e:
-    # If we can't import, we'll define a minimal version
-    print(f"Warning: Could not import DropSim: {e}")
-    ALL_GEAR_SLOTS = ["primary", "energy", "power", "helmet", "gloves", "chest", "legs", "class"]
-    WEAPON_SLOTS = ["primary", "energy", "power"]
-    ARMOR_SLOTS = ["helmet", "gloves", "chest", "legs", "class"]
-    DropSim = None
+    # Try alternative import for Vercel environment
+    try:
+        from .DropSim import ALL_GEAR_SLOTS, WEAPON_SLOTS, ARMOR_SLOTS
+        from . import DropSim
+    except ImportError as e2:
+        # If we still can't import, we'll define a minimal version
+        print(f"Warning: Could not import DropSim: {e}, {e2}")
+        ALL_GEAR_SLOTS = ["primary", "energy", "power", "helmet", "gloves", "chest", "legs", "class"]
+        WEAPON_SLOTS = ["primary", "energy", "power"]
+        ARMOR_SLOTS = ["helmet", "gloves", "chest", "legs", "class"]
+        DropSim = None
 
 app = Flask(__name__)
 
