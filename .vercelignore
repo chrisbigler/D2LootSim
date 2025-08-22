@@ -1,0 +1,14 @@
+Core Files/
+Docs/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+env.bak/
+venv.bak/
+.DS_Store
+.pytest_cache/
