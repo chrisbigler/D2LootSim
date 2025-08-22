@@ -9,8 +9,18 @@ app = Flask(__name__, template_folder='.')
 
 # Default configuration values
 DEFAULT_CONFIG = {
-    'total_time_hours': 1.5,
-    'starting_gear_level': 200
+    'total_time_hours': 10,
+    'starting_gear_level': 200,
+    'streak_bonuses': {
+        'solo': {1: 1, 2: 1, 3: 1},
+        'fireteam': {1: 2, 2: 3, 3: 3},
+        'pinnacle': {1: 3, 2: 4, 3: 4}
+    },
+    'drop_ranges': {
+        'solo': [1, 3],
+        'fireteam': [1, 5],
+        'pinnacle': [1, 6]
+    }
 }
 
 def convert_numpy_types(obj):
@@ -43,7 +53,7 @@ def run_simulation():
         config = data.get('config', DEFAULT_CONFIG)
         
         # Extract configuration values
-        total_time_hours = float(config.get('total_time_hours', 1.5))
+        total_time_hours = float(config.get('total_time_hours', 10))
         starting_gear_level = int(config.get('starting_gear_level', 200))
         streak_bonuses = config.get('streak_bonuses')
         drop_ranges = config.get('drop_ranges')
@@ -109,7 +119,7 @@ def compare_systems():
         config = data.get('config', DEFAULT_CONFIG)
         
         # Extract configuration values
-        total_time_hours = float(config.get('total_time_hours', 1.5))
+        total_time_hours = float(config.get('total_time_hours', 10))
         starting_gear_level = int(config.get('starting_gear_level', 200))
         streak_bonuses = config.get('streak_bonuses')
         drop_ranges = config.get('drop_ranges')

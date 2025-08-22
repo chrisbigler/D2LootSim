@@ -85,7 +85,7 @@ The **Edge of Fated** system redesigns activities to solve Solo Ops over-efficie
 ### Configurable Settings
 ```python
 STARTING_GEAR_LEVEL = 200         # Starting level for all gear pieces
-TOTAL_TIME_HOURS = 4              # Default simulation duration (4 hours per session)
+TOTAL_TIME_HOURS = 10             # Default simulation duration (10 hours per session)
 ```
 
 ### Drop Level Ranges
@@ -93,8 +93,8 @@ All activity types use the same default drop level ranges:
 ```python
 DROP_LEVEL_RANGES = {
     "solo": (1, 3),        # +1 to +3 levels above character level
-    "fireteam": (1, 3),    # +1 to +3 levels above character level  
-    "pinnacle": (1, 3),    # +1 to +3 levels above character level
+    "fireteam": (1, 5),    # +1 to +5 levels above character level
+    "pinnacle": (1, 6),    # +1 to +6 levels above character level
 }
 ```
 

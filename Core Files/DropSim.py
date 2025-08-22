@@ -92,7 +92,7 @@ DROP_LEVEL_RANGES = {
 }
 
 STARTING_GEAR_LEVEL = 200            # starting level for all gear pieces
-TOTAL_TIME_HOURS = 4               # simulate for 4 hours (single play session length)
+TOTAL_TIME_HOURS = 10               # simulate for 10 hours (single play session length)
 
 # Default systems configuration - Edge of Fated Leveling & Tiers Rework
 # Updated to match the new system specifications from Google Sheets
@@ -105,17 +105,16 @@ DEFAULT_SYSTEMS = {
         3: lambda: 1,  # Maintained for compatibility but not used in new system
     },
     "fireteam": {
-        # Edge of Fated: Unchanged from previous system
+        # Updated default streak rewards
         1: lambda: 2,
         2: lambda: 3,
-        3: lambda: 4,
+        3: lambda: 3,
     },
     "pinnacle": {
-        # Edge of Fated: Enhanced rewards (increased from 3/4/5 to 4/5/6)
-        # Now includes Dungeons moved from other categories
-        1: lambda: 4,  # Increased from 3
-        2: lambda: 5,  # Increased from 4
-        3: lambda: 6,  # Increased from 5
+        # Updated default streak rewards
+        1: lambda: 3,
+        2: lambda: 4,
+        3: lambda: 4,
     },
 }
 
