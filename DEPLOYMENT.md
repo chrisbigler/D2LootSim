@@ -103,10 +103,10 @@ This will run your app at `http://localhost:3000` with the same serverless envir
 
 ### Common Issues:
 
-1. **"pip: command not found" Error**: 
-   - This happens when Vercel tries to use Node.js runtime instead of Python
-   - **FIXED**: The `vercel.json` now explicitly specifies Python runtime
-   - If you still see this, ensure your `vercel.json` has `"runtime": "python3.9"`
+1. **"Function Runtimes must have a valid version" Error**: 
+   - This happens when using outdated runtime specifications like `"@vercel/python"`
+   - **FIXED**: Removed runtime specification - Vercel auto-detects Python from .py files
+   - Modern Vercel doesn't require explicit runtime for Python functions
 
 2. **Import Errors**: 
    - Ensure `DropSim.py` is in the `/api/` directory
