@@ -58,9 +58,9 @@ D2 Loot Sim/
 ## ⚙️ Configuration Files
 
 ### `vercel.json`
-- Configures Python serverless functions
-- Sets up routing for API endpoints and static files
-- Handles `/run_simulation` and `/compare_systems` routes
+- Uses `@vercel/python` build configuration for Python serverless functions
+- Routes all requests through the Python API
+- API serves both the HTML frontend and handles simulation endpoints
 
 ### `requirements.txt`
 - Flask 2.3.3
@@ -104,24 +104,28 @@ This will run your app at `http://localhost:3000` with the same serverless envir
 ### Common Issues:
 
 1. **"Function Runtimes must have a valid version" Error**: 
-   - This happens when using outdated runtime specifications like `"@vercel/python"`
-   - **FIXED**: Removed runtime specification - Vercel auto-detects Python from .py files
-   - Modern Vercel doesn't require explicit runtime for Python functions
+   - This happens when using incorrect runtime specifications in the `functions` config
+   - **FIXED**: Use `builds` array with `@vercel/python` instead of `functions` runtime
 
-2. **Import Errors**: 
+2. **"pip: command not found" Error**:
+   - This happens when Vercel doesn't recognize the project as Python
+   - **FIXED**: Use explicit `builds` configuration with `@vercel/python`
+   - The API now serves both static HTML and handles API endpoints
+
+3. **Import Errors**: 
    - Ensure `DropSim.py` is in the `/api/` directory
    - Check that all dependencies are in `requirements.txt`
 
-3. **Build Failed During Deployment**:
+4. **Build Failed During Deployment**:
    - Verify your `requirements.txt` only contains necessary packages
    - Make sure your Python code doesn't use any unsupported libraries
    - Check that all imports in `api/index.py` are available
 
-4. **Timeout Errors**: 
+5. **Timeout Errors**: 
    - Large simulations (1000+ trials) may timeout
    - Consider reducing trial count for complex analyses
 
-5. **Static Files Not Loading**: 
+6. **Static Files Not Loading**: 
    - Ensure `index.html` is in the root directory
    - Check `vercel.json` routing configuration
 

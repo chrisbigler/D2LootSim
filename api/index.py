@@ -39,7 +39,16 @@ def convert_numpy_types(obj):
     else:
         return obj
 
-# Index route removed - static HTML is served directly by Vercel
+@app.route('/')
+def index():
+    """Serve the main HTML file"""
+    # Read and return the index.html file from the parent directory
+    html_path = os.path.join(os.path.dirname(__file__), '..', 'index.html')
+    try:
+        with open(html_path, 'r') as f:
+            return f.read()
+    except FileNotFoundError:
+        return "index.html not found", 404
 
 @app.route('/run_simulation', methods=['POST'])
 def run_simulation():
