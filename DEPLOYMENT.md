@@ -103,15 +103,25 @@ This will run your app at `http://localhost:3000` with the same serverless envir
 
 ### Common Issues:
 
-1. **Import Errors**: 
+1. **"pip: command not found" Error**: 
+   - This happens when Vercel tries to use Node.js runtime instead of Python
+   - **FIXED**: The `vercel.json` now explicitly specifies Python runtime
+   - If you still see this, ensure your `vercel.json` has `"runtime": "python3.9"`
+
+2. **Import Errors**: 
    - Ensure `DropSim.py` is in the `/api/` directory
    - Check that all dependencies are in `requirements.txt`
 
-2. **Timeout Errors**: 
+3. **Build Failed During Deployment**:
+   - Verify your `requirements.txt` only contains necessary packages
+   - Make sure your Python code doesn't use any unsupported libraries
+   - Check that all imports in `api/index.py` are available
+
+4. **Timeout Errors**: 
    - Large simulations (1000+ trials) may timeout
    - Consider reducing trial count for complex analyses
 
-3. **Static Files Not Loading**: 
+5. **Static Files Not Loading**: 
    - Ensure `index.html` is in the root directory
    - Check `vercel.json` routing configuration
 

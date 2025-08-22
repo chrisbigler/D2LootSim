@@ -1,28 +1,22 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/index.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/index.py"
-    },
-    {
-      "src": "/(run_simulation|compare_systems)",
-      "dest": "/api/index.py"
-    }
-  ],
   "functions": {
     "api/index.py": {
+      "runtime": "python3.9",
       "maxDuration": 30
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.py"
+    },
+    {
+      "source": "/(run_simulation|compare_systems)",
+      "destination": "/api/index.py"
+    }
+  ]
 }
