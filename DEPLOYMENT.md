@@ -63,9 +63,9 @@ D2 Loot Sim/
 - API serves both the HTML frontend and handles simulation endpoints
 
 ### `requirements.txt`
-- Flask 2.3.3
-- numpy 1.24.3 
-- Werkzeug 2.3.7
+- Flask 3.0.0 (Python 3.12 compatible)
+- numpy 1.26.0 (Python 3.12 compatible)
+- Werkzeug 3.0.0 (Python 3.12 compatible)
 
 ### `.vercelignore`
 - Excludes original `Core Files/` directory
@@ -118,8 +118,10 @@ This will run your app at `http://localhost:3000` with the same serverless envir
    - Check that all dependencies are in `requirements.txt`
    - Use specific package versions to avoid compatibility issues
 
-4. **Build Failed During Deployment**:
+4. **Build Failed During Deployment / pip install errors**:
    - Verify your `requirements.txt` only contains necessary packages
+   - **Python 3.12 Compatibility**: Vercel uses Python 3.12, ensure all packages support it
+   - numpy < 1.26.0 is NOT compatible with Python 3.12
    - Make sure your Python code doesn't use any unsupported libraries
    - Check that all imports in `api/index.py` are available
 
